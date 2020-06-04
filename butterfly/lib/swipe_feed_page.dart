@@ -34,9 +34,9 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/settings');
+                Navigator.pushNamed(context, '/message');
               },
-              icon: Icon(Icons.settings, color: Colors.white, size: 28.0)),
+              icon: Icon(Icons.message, color: Colors.white, size: 28.0)),
         ],
       ),
       backgroundColor: Colors.white,

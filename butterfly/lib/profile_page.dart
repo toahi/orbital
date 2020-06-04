@@ -17,6 +17,14 @@ class _ProfilePageState extends State<ProfilePage> {
             fontSize: 20.0,
             letterSpacing: 2.0
         )),
+
+          actions: <Widget>[
+        IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
+            },
+            icon: Icon(Icons.settings, color: Colors.white, size: 28.0))
+    ]
       ),
       backgroundColor: Colors.white,
       body: Padding(
