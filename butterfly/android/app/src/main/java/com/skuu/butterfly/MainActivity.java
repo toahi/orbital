@@ -1,4 +1,4 @@
-package com.skuu.tindercards;
+package com.skuu.butterfly;
 
 import android.os.Bundle;
 

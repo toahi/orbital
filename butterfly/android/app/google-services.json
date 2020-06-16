@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "699438726004",
+    "firebase_url": "https://butterfly-dd745.firebaseio.com",
+    "project_id": "butterfly-dd745",
+    "storage_bucket": "butterfly-dd745.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699438726004:android:bb2bda5a08e6c2c35f8a21",
+        "android_client_info": {
+          "package_name": "com.skuu.butterfly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699438726004-1btdn1velh913gshtrjttbip5ic9oo9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2x_YqDF1kRvFwBNgmameBXC_-B2OlypE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699438726004-1btdn1velh913gshtrjttbip5ic9oo9b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "699438726004-2sfibpje4s517vrir2g7e3lj801m7htr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.skuu.butterfly"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
