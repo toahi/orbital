@@ -125,6 +125,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     //letterSpacing: 2.0,
                     fontSize: 18.0,
                 )
+            ),
+            IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: (){
+                //logout
+              }
             )
           ]
         )

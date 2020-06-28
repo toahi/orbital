@@ -1,4 +1,4 @@
-name: tinder_cards
+name: butterfly
 description: A new Flutter project.
 
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
   cloud_firestore: ^0.13.6
 
   #bloc for flutter
-  flutter_bloc: ^4.0.1
+  flutter_bloc: ^3.2.0
 
   #annotions
   meta: ^1.1.8
@@ -25,7 +25,7 @@ dependencies:
   equatable: ^1.2.0
 
   #work with streams and asynchronous code
-  rxdart: ^0.24.1
+  rxdart: ^0.23.0
 
 
 dev_dependencies:
