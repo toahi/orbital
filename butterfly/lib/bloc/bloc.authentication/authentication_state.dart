@@ -8,10 +8,10 @@ abstract class AuthenticationState extends Equatable {
 
 }
 
-class UninitialisedState extends AuthenticationState {
+class UninitialisedState extends AuthenticationState { //app has not been started
 }
 
-class AuthenticatedState extends AuthenticationState {
+class AuthenticatedState extends AuthenticationState { //App has been started and the user is authenticated
 
   final String userID;
   AuthenticatedState(this.userID);
@@ -24,7 +24,7 @@ class AuthenticatedState extends AuthenticationState {
 
 }
 
-class AuthenticatedBlankState extends AuthenticationState{
+class AuthenticatedBlankState extends AuthenticationState{  //App has been started and user is authenticated but user is a first time user and therefore needs to set up account
 
   final String userID;
   AuthenticatedBlankState(this.userID);
@@ -33,5 +33,5 @@ class AuthenticatedBlankState extends AuthenticationState{
   List<Object> get props => [userID];
 }
 
-class UnAuthenticatedState extends AuthenticationState{
+class UnAuthenticatedState extends AuthenticationState{ //App has been started and user has not authenticated yet,
 }

@@ -1,6 +1,6 @@
 import 'package:butterfly/bloc/bloc.signup/sign_up_bloc.dart';
 import 'package:butterfly/repositories/user_repository.dart';
-import 'package:butterfly/ui/widgets/signupform.dart';
+import 'package:butterfly/ui/widgets/signup_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

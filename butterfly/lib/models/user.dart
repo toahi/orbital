@@ -10,8 +10,8 @@ class User{
   Timestamp age;
   GeoPoint location;
 
-  User(this.uid, this.name, this.gender, this.interestedIn, this.photo, this.age,
-      this.location);
+  User({this.uid, this.name, this.gender, this.interestedIn, this.photo, this.age,
+      this.location});
 
 
 }

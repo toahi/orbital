@@ -1,140 +1,43 @@
+import 'package:butterfly/bloc/bloc.authentication/authentication_bloc.dart';
+import 'package:butterfly/bloc/bloc.authentication/authentication_event.dart';
+import 'package:butterfly/bloc/bloc.profile/bloc.dart';
+import 'package:butterfly/repositories/user_repository.dart';
+import 'package:butterfly/ui/widgets/profile_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProfilePage extends StatefulWidget {
-  @override
-  _ProfilePageState createState() => _ProfilePageState();
-}
 
-class _ProfilePageState extends State<ProfilePage> {
+class ProfilePage extends StatelessWidget {
+  final _userRepository;
+  final userId;
+
+  ProfilePage({@required UserRepository userRepository, String userId})
+      : assert(userRepository != null && userId != null),
+        _userRepository = userRepository,
+        userId = userId;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
+        title: Text("Profile"),
         centerTitle: true,
         backgroundColor: Colors.cyan[200],
-        title: Text('My Profile', style: TextStyle(
-            fontSize: 20.0,
-            letterSpacing: 2.0
-        )),
-
+        elevation: 0,
           actions: <Widget>[
-        IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-            icon: Icon(Icons.settings, color: Colors.white, size: 28.0))
-    ]
-      ),
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('res/guy.png'),
-                radius: 50.0,
-              ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.grey[800],
-            ),
-            Text(
-              'Name',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              )
-            ),
-            SizedBox(height: 10.0),
-            Text(
-                'John Tan',
-                style: TextStyle(
-                  color: Colors.black,
-                  //letterSpacing: 2.0,
-                  fontSize: 18.0,
-                )
-            ),
-            SizedBox(height: 30.0),
-            Text(
-                'Age',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                )
-            ),
-            SizedBox(height: 10.0),
-            Text(
-                '22',
-                style: TextStyle(
-                    color: Colors.black,
-                    //letterSpacing: 2.0,
-                    fontSize: 18.0,
-                )
-            ),
-            SizedBox(height: 30.0),
-            Text(
-                'Gender',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                )
-            ),
-            SizedBox(height: 10.0),
-            Text(
-                'Male',
-                style: TextStyle(
-                    color: Colors.black,
-                    //letterSpacing: 2.0,
-                    fontSize: 18.0,
-                )
-            ),
-            SizedBox(height: 30.0),
-            Text(
-                'Bio',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                )
-            ),
-            SizedBox(height: 10.0),
-            Text(
-                'Sagittarius, wanderlust, gym is life',
-                style: TextStyle(
-                    color: Colors.black,
-                    //letterSpacing: 2.0,
-                    fontSize: 18.0,
-                )
-            ),
-            SizedBox(height: 30.0),
-            Text(
-                'Email',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                )
-            ),
-            SizedBox(height: 10.0),
-            Text(
-                'johntan@email.com',
-                style: TextStyle(
-                    color: Colors.black,
-                    //letterSpacing: 2.0,
-                    fontSize: 18.0,
-                )
-            ),
-            IconButton(
-              icon: Icon(Icons.exit_to_app),
+          IconButton(
               onPressed: (){
-                //logout
-              }
-            )
+                  BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+              },
+              icon: Icon(Icons.exit_to_app, color: Colors.white, size: 28.0))
           ]
-        )
-      )
+      ),
+      body: BlocProvider<ProfileBloc>(
+        create: (context) => ProfileBloc(userRepository: _userRepository),
+        child: ProfileForm(
+          userRepository: _userRepository,
+        ),
+      ),
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:butterfly/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 import '../widgets/cards_section_alignment.dart';
 import '../widgets/cards_section_draggable.dart';
-import 'profile_page.dart';
+import 'profile_page_old.dart';
 
 class SwipeFeedPage extends StatefulWidget {
   @override
@@ -30,8 +30,8 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> {
             }, icon: Icon(Icons.person, color: Colors.white, size: 32.0)),
         //title: Switch(
         //  onChanged: (bool value) => setState(() => showAlignmentCards = value),
-        //  value: showAlignmentCards,
-        //  activeColor: Colors.red,
+         //  value: showAlignmentCards,
+         // activeColor: Colors.red,
         //),
         actions: <Widget>[
           IconButton(
