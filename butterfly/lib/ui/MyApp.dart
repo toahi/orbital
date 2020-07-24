@@ -1,9 +1,14 @@
 
 import 'package:butterfly/bloc/bloc.authentication/authentication_bloc.dart';
 import 'package:butterfly/bloc/bloc.authentication/authentication_state.dart';
+import 'package:butterfly/bloc/bloc.profile/profile_bloc.dart';
+import 'package:butterfly/bloc/bloc.profile/profile_state.dart';
 import 'package:butterfly/repositories/user_repository.dart';
+import 'package:butterfly/ui/pages/home_page.dart';
 import 'package:butterfly/ui/pages/login_page.dart';
+import 'package:butterfly/ui/pages/messages.dart';
 import 'package:butterfly/ui/pages/profile_page.dart';
+import 'package:butterfly/ui/pages/settings_page.dart';
 import 'package:butterfly/ui/pages/splash.dart';
 import 'package:butterfly/ui/pages/swipe_feed_page.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +18,15 @@ class MyApp extends StatelessWidget {
   final UserRepository _userRepository;
 
 
-    MyApp({@required UserRepository userRepository})
+     MyApp ({@required UserRepository userRepository})
         : assert(userRepository != null),
     _userRepository = userRepository;
 
+
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -27,7 +35,10 @@ class MyApp extends StatelessWidget {
             return Splash();
           }
           if (state is AuthenticatedState) {
-            return SwipeFeedPage();
+            return Home(
+              userId: state.userID,
+              userRepository: _userRepository,
+            );
           }
           if (state is AuthenticatedBlankState) {
             return ProfilePage(

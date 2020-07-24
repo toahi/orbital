@@ -21,8 +21,8 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> {
         centerTitle: true,
         backgroundColor: Colors.cyan[200],
         title: Text('Butterfly', style: TextStyle(
-          fontSize: 24.0,
-          letterSpacing: 2.0
+            fontSize: 24.0,
+            letterSpacing: 2.0
         )),
         leading: IconButton(
             onPressed: () {
@@ -30,8 +30,8 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> {
             }, icon: Icon(Icons.person, color: Colors.white, size: 32.0)),
         //title: Switch(
         //  onChanged: (bool value) => setState(() => showAlignmentCards = value),
-         //  value: showAlignmentCards,
-         // activeColor: Colors.red,
+        //  value: showAlignmentCards,
+        // activeColor: Colors.red,
         //),
         actions: <Widget>[
           IconButton(

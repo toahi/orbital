@@ -1,5 +1,5 @@
 import 'package:butterfly/models/message.dart';
-import 'package:butterfly/repositories/messaging.dart';
+import 'package:butterfly/repositories/messaging_repository.dart';
 import 'package:butterfly/ui/widgets/photo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;

@@ -93,15 +93,22 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         String interestedIn}) async* {
     yield ProfileState.loading();
     try {
-       //if (await _userRepository.isFirstTime(userId))
-          await _userRepository.profileSetUp(
-          photo, userId, name, gender, interestedIn, age, location);
+       if (await _userRepository.isFirstTime(userId)) {
+         await _userRepository.profileSetUp(
+             photo,
+             userId,
+             name,
+             gender,
+             interestedIn,
+             age,
+             location);
+       }
 
-         // else{
-        // {_userRepository.profileUpdate(
-        //     photo, userId, name, gender, interestedIn, age, location);
-         //}
-    //}
+       else{
+         {_userRepository.profileUpdate(
+             photo, userId, name, gender, interestedIn, age, location);
+         }
+      }
       yield ProfileState.success();
     } catch (_) {
       yield ProfileState.failure();

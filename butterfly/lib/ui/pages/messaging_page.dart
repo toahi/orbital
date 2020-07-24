@@ -5,7 +5,7 @@ import 'package:butterfly/bloc/bloc.messaging/messaging_event.dart';
 import 'package:butterfly/bloc/bloc.messaging/messaging_state.dart';
 import 'package:butterfly/models/message.dart';
 import 'package:butterfly/models/user.dart';
-import 'package:butterfly/repositories/messaging.dart';
+import 'package:butterfly/repositories/messaging_repository.dart';
 import 'package:butterfly/ui/widgets/message_widget.dart';
 import 'package:butterfly/ui/widgets/photo_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

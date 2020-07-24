@@ -1,17 +1,21 @@
-
+/*
 import 'dart:io';
+
 import 'package:butterfly/bloc/bloc.authentication/authentication_bloc.dart';
 import 'package:butterfly/bloc/bloc.authentication/authentication_event.dart';
-import 'package:butterfly/bloc/bloc.profile/bloc.dart';
+import 'package:butterfly/bloc/bloc.profile/profile_event.dart';
+import 'package:butterfly/bloc/bloc.profile/profile_bloc.dart';
+import 'package:butterfly/bloc/bloc.profile/profile_state.dart';
 import 'package:butterfly/repositories/user_repository.dart';
-import 'package:butterfly/ui/widgets/gender.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:image_picker/image_picker.dart';
+//import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+
+import 'gender.dart';
 
 class ProfileForm extends StatefulWidget {
   final UserRepository _userRepository;
@@ -79,22 +83,12 @@ class _ProfileFormState extends State<ProfileForm> {
     super.dispose();
   }
 
-  final picker = ImagePicker();
-
-  Future getImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
-
-    setState(() {
-      photo = File(pickedFile.path);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return BlocListener<ProfileBloc, ProfileState>(
-      //bloc: _profileBloc,     not necessary because it is provided in the init
+      //bloc: _profileBloc,
       listener: (context, state) {
         if (state.isFailure) {
           print("Failed");
@@ -105,7 +99,7 @@ class _ProfileFormState extends State<ProfileForm> {
                 content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('Profile Creation Unsuccessful'),
+                    Text('Profile Creation Unsuccesful'),
                     Icon(Icons.error)
                   ],
                 ),
@@ -144,17 +138,39 @@ class _ProfileFormState extends State<ProfileForm> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                      child:GestureDetector(
-                        onTap: getImage,
-                        child: CircleAvatar(
-                            radius: size.width * 0.15,
-                            backgroundColor:Colors.transparent,
-                            backgroundImage:
-                            photo == null
-                                ? AssetImage('res/profilephoto.png')
-                                : FileImage(photo),
-                        ),
+                    width: size.width,
+                    child: CircleAvatar(
+                      radius: size.width * 0.3,
+                      backgroundColor: Colors.transparent,
+                      child: photo == null
+                          ? GestureDetector(
+                        onTap: () async {
+                          File getPic = await FilePicker.getFile(
+                              type: FileType.image);
+                          if (getPic != null) {
+                            setState(() {
+                              photo = getPic;
+                            });
+                          }
+                        },
+                        child: Image.asset('res/profilephoto.png'),
                       )
+                          : GestureDetector(
+                        onTap: () async {
+                          File getPic = await FilePicker.getFile(
+                              type: FileType.image);
+                          if (getPic != null) {
+                            setState(() {
+                              photo = getPic;
+                            });
+                          }
+                        },
+                        child: CircleAvatar(
+                          radius: size.width * 0.3,
+                          backgroundImage: FileImage(photo),
+                        ),
+                      ),
+                    ),
                   ),
                   textFieldWidget(_nameController, "Name", size),
                   GestureDetector(
@@ -172,20 +188,10 @@ class _ProfileFormState extends State<ProfileForm> {
                         },
                       );
                     },
-                    child: Container(
-                      width: size.width * 0.8,
-                      height: size.height * 0.06,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(1),
-                      ),
-                      child: Center(
-                          child: Text("Enter Birthday",
-                              style: TextStyle(fontSize: size.height * 0.03)),
-                      ),
+                    child: Text(
+                      "Enter Birthday",
+                      style: TextStyle(
+                          color: Colors.white, fontSize: size.width * 0.09),
                     ),
                   ),
                   SizedBox(
@@ -198,7 +204,7 @@ class _ProfileFormState extends State<ProfileForm> {
                         padding: EdgeInsets.symmetric(
                             horizontal: size.height * 0.02),
                         child: Text(
-                          "Gender",
+                          "You Are",
                           style: TextStyle(
                               color: Colors.white, fontSize: size.width * 0.09),
                         ),
@@ -241,7 +247,7 @@ class _ProfileFormState extends State<ProfileForm> {
                         padding: EdgeInsets.symmetric(
                             horizontal: size.height * 0.02),
                         child: Text(
-                          "Interested In",
+                          "Looking For",
                           style: TextStyle(
                               color: Colors.white, fontSize: size.width * 0.09),
                         ),
@@ -264,13 +270,13 @@ class _ProfileFormState extends State<ProfileForm> {
                               }),
                           genderWidget(
                             FontAwesomeIcons.transgender,
-                            "Non-Binary",
+                            "Transgender",
                             size,
                             interestedIn,
                                 () {
                               setState(
                                     () {
-                                  interestedIn = "I want em all";
+                                  interestedIn = "Transgender";
                                 },
                               );
                             },
@@ -315,7 +321,6 @@ class _ProfileFormState extends State<ProfileForm> {
       ),
     );
   }
-
 }
 
 Widget textFieldWidget(controller, text, size) {
@@ -337,3 +342,5 @@ Widget textFieldWidget(controller, text, size) {
     ),
   );
 }
+
+ */

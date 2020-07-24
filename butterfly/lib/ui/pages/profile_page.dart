@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
   final userId;
 
   ProfilePage({@required UserRepository userRepository, String userId})
-      : assert(userRepository != null && userId != null),
+      : assert(userRepository != null  && userId != null),
         _userRepository = userRepository,
         userId = userId;
 

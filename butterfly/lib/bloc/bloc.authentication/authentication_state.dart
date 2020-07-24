@@ -35,3 +35,4 @@ class AuthenticatedBlankState extends AuthenticationState{  //App has been start
 
 class UnAuthenticatedState extends AuthenticationState{ //App has been started and user has not authenticated yet,
 }
+

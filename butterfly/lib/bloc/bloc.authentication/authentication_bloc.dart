@@ -62,4 +62,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     yield UnAuthenticatedState();
     _userRepository.signOut();
   }
+
+
 }

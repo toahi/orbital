@@ -19,3 +19,4 @@ class LoggedIn extends AuthenticationEvent {
 class LoggedOut extends AuthenticationEvent{
 
 }
+

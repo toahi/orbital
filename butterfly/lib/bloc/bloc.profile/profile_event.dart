@@ -10,6 +10,13 @@ abstract class ProfileEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+/*
+class Nothing extends ProfileEvent {
+  @override
+  List<Object> get props => [];
+}
+
+ */
 
 class NameChanged extends ProfileEvent {
   final String name;
