@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Search extends StatefulWidget {
   final String userId;
@@ -54,12 +55,24 @@ class _SearchState extends State<Search> {
             LoadUserEvent(userId: widget.userId),
           );
           return Center(
+            child: SpinKitPumpingHeart(
+              color: Colors.cyan[200],
+              size: size.width * 0.2,
+            ),
+          );
+          return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
             ),
           );
         }
         if (state is LoadingState) {
+          return Center(
+            child: SpinKitPumpingHeart(
+              color: Colors.cyan[200],
+              size: size.width * 0.1,
+            ),
+          );
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
@@ -93,6 +106,7 @@ class _SearchState extends State<Search> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    //Text(_user.photo), //FOR TESTING PURPOSES
                     SizedBox(
                       height: size.height * 0.06,
                     ),
@@ -134,8 +148,6 @@ class _SearchState extends State<Search> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        iconWidget(EvaIcons.flash, () {}, size.height * 0.04,
-                            Colors.yellow),
                         iconWidget(Icons.clear, () {
                           _searchBloc
                               .add(PassUserEvent(widget.userId, _user.uid));
@@ -149,8 +161,7 @@ class _SearchState extends State<Search> {
                                 selectedUserId: _user.uid),
                           );
                         }, size.height * 0.06, Colors.red),
-                        iconWidget(EvaIcons.options2, () {}, size.height * 0.04,
-                            Colors.white)
+
                       ],
                     )
                   ],

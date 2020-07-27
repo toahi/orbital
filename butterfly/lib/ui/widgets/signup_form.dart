@@ -107,7 +107,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 children: <Widget>[
                   Center(
                     child:Text("Butterfly",
-                        style:TextStyle(fontSize: size.width*0.2, color: Colors.white)
+                        style:TextStyle(fontSize: size.width*0.17, color: Colors.white, letterSpacing: 2.0,)
                   ),
                   ),
                   Container(

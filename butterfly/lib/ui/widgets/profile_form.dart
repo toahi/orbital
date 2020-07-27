@@ -4,8 +4,9 @@ import 'package:butterfly/bloc/bloc.authentication/authentication_bloc.dart';
 import 'package:butterfly/bloc/bloc.authentication/authentication_event.dart';
 import 'package:butterfly/bloc/bloc.profile/bloc.dart';
 import 'package:butterfly/repositories/user_repository.dart';
-import 'package:butterfly/ui/widgets/gender.dart';
+import 'package:butterfly/ui/widgets/gender_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -138,7 +139,7 @@ class _ProfileFormState extends State<ProfileForm> {
           return SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              color: Colors.cyan[200],
+              color: Colors.cyan[100],
               width: size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -184,7 +185,7 @@ class _ProfileFormState extends State<ProfileForm> {
                       ),
                       child: Center(
                           child: Text("Enter Birthday",
-                              style: TextStyle(fontSize: size.height * 0.03)),
+                              style: TextStyle(fontSize: size.height * 0.03, color: Colors.white),),
                       ),
                     ),
                   ),
@@ -221,13 +222,13 @@ class _ProfileFormState extends State<ProfileForm> {
                           }),
                           genderWidget(
                             FontAwesomeIcons.transgender,
-                            "Transgender",
+                            "Non-Binary",
                             size,
                             gender,
                                 () {
                               setState(
                                     () {
-                                  gender = "Transgender";
+                                  gender = "Non-Binary";
                                 },
                               );
                             },
@@ -270,7 +271,7 @@ class _ProfileFormState extends State<ProfileForm> {
                                 () {
                               setState(
                                     () {
-                                  interestedIn = "I want em all";
+                                  interestedIn = "Non-Binary";
                                 },
                               );
                             },

@@ -29,7 +29,7 @@ class SearchRepository {
         .document(currentUserId)
         .setData({
       'name': name,
-      'photoUrl': photoUrl,
+      'photourl': photoUrl,
     });
     return getUser(currentUserId);
   }
@@ -56,7 +56,7 @@ class SearchRepository {
 
     await _firestore.collection('users').document(userId).get().then((user) {
       currentUser.name = user['name'];
-      currentUser.photo = user['photoUrl'];
+      currentUser.photo = user['photourl'];
       currentUser.gender = user['gender'];
       currentUser.interestedIn = user['interestedIn'];
     });
@@ -93,7 +93,7 @@ class SearchRepository {
             (user['interestedIn'] == currentUser.gender)) {
           _user.uid = user.documentID;
           _user.name = user['name'];
-          _user.photo = user['photoUrl'];
+          _user.photo = user['photourl'];
           _user.age = user['age'];
           _user.location = user['location'];
           _user.gender = user['gender'];

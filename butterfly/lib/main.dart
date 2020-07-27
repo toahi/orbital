@@ -11,9 +11,6 @@ import 'package:butterfly/bloc/blocDelegate.dart';
 import 'package:butterfly/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'ui/pages/swipe_feed_page.dart';
-import 'ui/pages/profile_page_old.dart';
-import 'ui/pages/settings_page.dart';
 import 'ui/pages/messages_page.dart';
 
 void main() {

@@ -17,7 +17,7 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Welcome",
+          "",
           style: TextStyle(fontSize: 36.0),
         ),
         centerTitle: true,

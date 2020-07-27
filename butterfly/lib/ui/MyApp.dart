@@ -8,9 +8,7 @@ import 'package:butterfly/ui/pages/home_page.dart';
 import 'package:butterfly/ui/pages/login_page.dart';
 import 'package:butterfly/ui/pages/messages.dart';
 import 'package:butterfly/ui/pages/profile_page.dart';
-import 'package:butterfly/ui/pages/settings_page.dart';
 import 'package:butterfly/ui/pages/splash.dart';
-import 'package:butterfly/ui/pages/swipe_feed_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -8,6 +8,7 @@ import 'package:butterfly/ui/widgets/user_gender.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -52,19 +53,25 @@ class _MatchesState extends State<Matches> {
       builder: (BuildContext context, MatchesState state) {
         if (state is LoadingState) {
           _matchesBloc.add(LoadListsEvent(userId: widget.userId));
-          return CircularProgressIndicator();
+          return Center(
+            child: SpinKitPumpingHeart(
+              color: Colors.cyan[200],
+              size: size.width * 0.2,
+            ),
+          );
         }
         if (state is LoadUserState) {
           return CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
                 pinned: true,
-                backgroundColor: Colors.pink[100],
+                backgroundColor: Colors.white,
                 title: Text(
-                  "Your Matches",
+                  "Your Matches:",
                   style: TextStyle(color: Colors.black, fontSize: 15.0),
                 ),
               ),
+
               StreamBuilder<QuerySnapshot>(
                 stream: state.matchedList,
                 builder: (context, snapshot) {
@@ -186,7 +193,7 @@ class _MatchesState extends State<Matches> {
                             },
                             child: profileWidget(
                               padding: size.height * 0.01,
-                              photo: user[index].data['photoUrl'],
+                              photo: user[index].data['photourl'],
                               photoWidth: size.width * 0.5,
                               photoHeight: size.height * 0.3,
                               clipRadius: size.height * 0.01,
@@ -213,10 +220,10 @@ class _MatchesState extends State<Matches> {
                 },
               ),
               SliverAppBar(
-                backgroundColor: Colors.pink[100],
+                backgroundColor: Colors.white,
                 pinned: true,
                 title: Text(
-                  "Interested People",
+                  "People who liked you:",
                   style: TextStyle(color: Colors.black, fontSize: 15),
                 ),
               ),
@@ -375,7 +382,7 @@ class _MatchesState extends State<Matches> {
                             },
                             child: profileWidget(
                               padding: size.height * 0.01,
-                              photo: user[index].data['photoUrl'],
+                              photo: user[index].data['photourl'],
                               photoWidth: size.width * 0.5,
                               photoHeight: size.height * 0.3,
                               clipRadius: size.height * 0.01,

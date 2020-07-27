@@ -107,7 +107,7 @@ class _LoginFormState extends State<LoginForm> {
                 children: <Widget>[
                   Center(
                     child:Text("Butterfly",
-                        style:TextStyle(fontSize: size.width*0.2, color: Colors.white)
+                        style:TextStyle(fontSize: size.width*0.17, color: Colors.white, letterSpacing: 2.0,)
                     ),
                   ),
                   Container(
@@ -207,7 +207,7 @@ class _LoginFormState extends State<LoginForm> {
                             );
                           },
                           child: Text(
-                            "Sign Up for new Account",
+                            "Sign Up for New Account",
                             style: TextStyle(
                               fontSize: size.height * 0.025,
                               color: Colors.white,

@@ -44,7 +44,7 @@ class MessagingRepository {
             'senderName': message.senderName,
             'senderId': message.senderId,
             'text': null,
-            'photoUrl': photoUrl,
+            'photourl': photoUrl,
             'timestamp': DateTime.now(),
           });
         });
@@ -77,7 +77,7 @@ class MessagingRepository {
         'senderName': message.senderName,
         'senderId': message.senderId,
         'text': message.text,
-        'photoUrl': null,
+        'photourl': null,
         'timestamp': DateTime.now(),
       });
 
@@ -128,7 +128,7 @@ class MessagingRepository {
       _message.senderName = message['senderName'];
       _message.timestamp = message['timestamp'];
       _message.text = message['text'];
-      _message.photoUrl = message['photoUrl'];
+      _message.photoUrl = message['photourl'];
     });
 
     return _message;

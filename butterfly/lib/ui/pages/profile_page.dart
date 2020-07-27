@@ -20,9 +20,9 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text("Edit Profile", style: TextStyle(color: Colors.white),),
         centerTitle: true,
-        backgroundColor: Colors.cyan[200],
+        backgroundColor: Colors.cyan[100],
         elevation: 0,
           actions: <Widget>[
           IconButton(

@@ -9,9 +9,10 @@ import 'package:butterfly/repositories/messaging_repository.dart';
 import 'package:butterfly/ui/widgets/message_widget.dart';
 import 'package:butterfly/ui/widgets/photo_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Messaging extends StatefulWidget {
   final User currentUser, selectedUser;
@@ -70,6 +71,9 @@ class _MessagingState extends State<Messaging> {
     _messageTextController.clear();
   }
 
+
+  final picker = ImagePicker();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -111,7 +115,10 @@ class _MessagingState extends State<Messaging> {
           }
           if (state is MessagingLoadingState) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: SpinKitPumpingHeart(
+                color: Colors.cyan[200],
+                size: size.width * 0.2,
+              ),
             );
           }
           if (state is MessagingLoadedState) {
@@ -124,9 +131,9 @@ class _MessagingState extends State<Messaging> {
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
                       return Text(
-                        "Start the conversation?",
+                        "",   //can add in flavour text to prompt conversations
                         style: TextStyle(
-                            fontSize: 16.0, fontWeight: FontWeight.bold),
+                            fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey[200]),
                       );
                     }
                     if (snapshot.data.documents.isNotEmpty) {
@@ -152,7 +159,7 @@ class _MessagingState extends State<Messaging> {
                     } else {
                       return Center(
                         child: Text(
-                          "Start the conversation ?",
+                          "",     // can add in flavour text to prompt conversations
                           style: TextStyle(
                               fontSize: 16.0, fontWeight: FontWeight.bold),
                         ),
@@ -168,16 +175,15 @@ class _MessagingState extends State<Messaging> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: () async {
-                          File photo =
-                          await FilePicker.getFile(type: FileType.image);
-                          if (photo != null) {
+                          final pickedFile = await picker.getImage(source: ImageSource.gallery);
+                          if (pickedFile != null) {
                             _messagingBloc.add(
                               SendMessageEvent(
                                 message: Message(
                                     text: null,
                                     senderName: widget.currentUser.name,
                                     senderId: widget.currentUser.uid,
-                                    photo: photo,
+                                    photo: File(pickedFile.path),
                                     selectedUserId: widget.selectedUser.uid),
                               ),
                             );
@@ -187,7 +193,7 @@ class _MessagingState extends State<Messaging> {
                           padding: EdgeInsets.symmetric(
                               horizontal: size.height * 0.005),
                           child: Icon(
-                            Icons.add,
+                            Icons.photo_library,
                             color: Colors.white,
                             size: size.height * 0.04,
                           ),

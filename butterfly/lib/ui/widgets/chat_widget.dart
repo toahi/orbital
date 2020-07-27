@@ -151,6 +151,8 @@ class _ChatWidgetState extends State<ChatWidget> {
                             ),
                           ),
                         ),
+                       // Text(user.photo),//why is the value null in this case
+
                         SizedBox(
                           width: size.width * 0.02,
                         ),
@@ -168,7 +170,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                               style: TextStyle(color: Colors.grey),
                             )
                                 : chat.lastMessagePhoto == null
-                                ? Text("Chat Room Open")
+                                ? Text("")
                                 : Row(
                               children: <Widget>[
                                 Icon(

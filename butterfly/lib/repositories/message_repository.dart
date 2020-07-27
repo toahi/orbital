@@ -32,7 +32,7 @@ class MessageRepository {
     await _firestore.collection('users').document(userId).get().then((user) {
       _user.uid = user.documentID;
       _user.name = user['name'];
-      _user.photo = user['photoUrl'];
+      _user.photo = user['photourl'];
       _user.age = user['age'];
       _user.location = user['location'];
       _user.gender = user['gender'];
@@ -60,7 +60,7 @@ class MessageRepository {
           .get()
           .then((message) {
         _message.text = message['text'];
-        _message.photoUrl = message['photoUrl'];
+        _message.photoUrl = message['photourl'];
         _message.timestamp = message['timestamp'];
       });
     });

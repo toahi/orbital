@@ -29,7 +29,7 @@ class MatchesRepository {
     await _firestore.collection('users').document(userId).get().then((user) {
       _user.uid = user.documentID;
       _user.name = user['name'];
-      _user.photo = user['photoUrl'];
+      _user.photo = user['photourl'];
       _user.age = user['age'];
       _user.location = user['location'];
       _user.gender = user['gender'];
@@ -89,7 +89,7 @@ class MatchesRepository {
         .document(selectedUserId)
         .setData({
       'name': selectedUserName,
-      'photoUrl': selectedUserPhotoUrl,
+      'photourl': selectedUserPhotoUrl,
     });
 
     return await _firestore
@@ -99,7 +99,7 @@ class MatchesRepository {
         .document(currentUserId)
         .setData({
       'name': currentUserName,
-      'photoUrl': currentUserPhotoUrl,
+      'photourl': currentUserPhotoUrl,
     });
   }
 }

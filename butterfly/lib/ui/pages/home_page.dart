@@ -18,10 +18,6 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [
-      ProfilePage(
-        userRepository: userRepository,
-        userId: userId,
-      ),
       Search(
         userId: userId,
       ),
@@ -29,6 +25,10 @@ class Home extends StatelessWidget {
         userId: userId,
       ),
       Messages(
+        userId: userId,
+      ),
+      ProfilePage(
+        userRepository: userRepository,
         userId: userId,
       ),
     ];
@@ -44,9 +44,10 @@ class Home extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              "Chill",
-              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+              "Butterfly",
+              style: TextStyle(color: Colors.cyan[200], fontSize: 30.0, fontWeight: FontWeight.bold, letterSpacing: 2.0,),
             ),
+            /*
             actions: <Widget>[
               IconButton(
                 icon: Icon(Icons.exit_to_app),
@@ -55,6 +56,8 @@ class Home extends StatelessWidget {
                 },
               )
             ],
+
+             */
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(48.0),
               child: Container(
@@ -65,10 +68,10 @@ class Home extends StatelessWidget {
                   children: <Widget>[
                     TabBar(
                       tabs: <Widget>[
-                        Tab(icon: Icon(Icons.settings)),
                         Tab(icon: Icon(Icons.search)),
-                        Tab(icon: Icon(Icons.people)),
+                        Tab(icon: Icon(Icons.favorite)),
                         Tab(icon: Icon(Icons.message)),
+                        Tab(icon: Icon(Icons.person)),
                       ],
                     )
                   ],

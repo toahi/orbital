@@ -28,7 +28,7 @@ dependencies:
   rxdart: ^0.23.0
 
   #work with path of images
-  file_picker: ^1.9.0
+  #file_picker: ^1.9.0    this doesn't work...
   image_picker: ^0.6.7+4
 
   #fonts
@@ -40,14 +40,18 @@ dependencies:
   #location service
   geolocator: ^5.3.1
 
-  permission_handler: ^3.0.0
+  #permission_handler: ^3.0.0
 
-
+  #Nice icons to use
   eva_icons_flutter: ^2.0.0
+
+  #Image formatting
   extended_image: ^0.7.2
   timeago: ^2.0.26
   uuid: ^2.0.4
 
+  #for spinny loading wheels
+  flutter_spinkit: "^4.1.2"
 
 dev_dependencies:
   flutter_test:
