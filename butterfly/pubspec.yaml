@@ -28,7 +28,7 @@ dependencies:
   rxdart: ^0.23.0
 
   #work with path of images
-  #file_picker: ^1.9.0    this doesn't work...
+  file_picker: ^1.9.0       #this doesn't work...
   image_picker: ^0.6.7+4
 
   #fonts
